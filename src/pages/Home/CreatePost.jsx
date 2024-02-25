@@ -37,6 +37,7 @@ const CreatePost = () => {
           text2={"Video"}
           color={"text-orange-500"}
           bgColor={"bg-orange-200"}
+          
         />
         <IconBox
           text1={<FaSmileWink />}

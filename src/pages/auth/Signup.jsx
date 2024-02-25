@@ -21,7 +21,8 @@ const Signup = () => {
         className="w-1/2 mx-auto border-2  flex flex-col"
         onSubmit={handleSignUp}
       >
-        <label>Name:</label>
+        <label>Name:
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint est quas velit quasi eaque, doloribus alias neque. Vel consequatur quaerat provident, recusandae dignissimos, temporibus aliquid repudiandae assumenda aspernatur culpa sunt?</p></label>
         <input
           type="text"
           value={name}
