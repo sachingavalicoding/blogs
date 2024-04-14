@@ -1,7 +1,6 @@
-import avatar1 from "/assets/avatar1.jpg";
-import avatar2 from "/assets/avatar2.jpg";
-import avatar3 from "/assets/avatar3.jpg";
-import avatar4 from "/assets/avatar4.jpg";
+import avatar1 from "/assets/avatar2.jpg";
+import avatar2 from "/assets/avtar-1.jpg";
+import avatar4 from "/assets/avtar-2.jpg";
 import AvatarBox from "../ui/AvatarBox";
 const RightBar = () => {
   return (
@@ -35,32 +34,7 @@ const RightBar = () => {
         />
         <AvatarBox
           url={avatar2}
-          text2={"Sachin Gavali "}
-          color={"text-slate-700"}
-        />
-        <AvatarBox
-          url={avatar3}
-          text2={"Sachin Gavali "}
-          color={"text-slate-700"}
-        />
-        <AvatarBox
-          url={avatar4}
-          text2={"Sachin Gavali "}
-          color={"text-slate-700"}
-        />
-        <AvatarBox
-          url={avatar1}
-          text2={"Sachin Gavali "}
-          color={"text-slate-700"}
-        />
-        <AvatarBox
-          url={avatar1}
-          text2={"Sachin Gavali "}
-          color={"text-slate-700"}
-        />
-        <AvatarBox
-          url={avatar1}
-          text2={"Sachin Gavali "}
+          text2={"Amol Jadhav "}
           color={"text-slate-700"}
         />
       </div>

@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer utilities {
+  .blogData h1 {
+    @apply text-xl font-bold py-2 ml-4 mb-8 md:text-4xl;
+  }
+  .blogData h2 {
+    @apply text-2xl font-semibold py-2;
+  }
+  .blogData a {
+    @apply text-blue-700 underline;
+  }
+  .blogData p {
+    @apply text-slate-800 text-xl my-2 py-4 px-2 ml-4;
+  }
+}

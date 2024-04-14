@@ -5,7 +5,7 @@ import { IoMdHeart } from "react-icons/io";
 import { FaCommentDots } from "react-icons/fa";
 import { IoShareSocialSharp, IoCameraOutline } from "react-icons/io5";
 import { CiFaceSmile } from "react-icons/ci";
-import { AiFillLike, AiFillDislike } from "react-icons/ai";
+import parse from "html-react-parser";
 const BlogDetails = () => {
   const { id } = useParams();
   const { blogs } = useBlog();
@@ -14,6 +14,7 @@ const BlogDetails = () => {
   if (!selectedBlog) {
     return <p>Blog not found</p>;
   }
+  const createdat = new Date(selectedBlog.$createdAt);
   return (
     <ul className="w-full px-2 lg:px-8 py-2 gap-8 flex flex-col mt-5 bg-slate-200 rounded-lg">
       <li className="shadow-lg bg-slate-200 px-3 py-2" key={selectedBlog.$id}>
@@ -26,12 +27,15 @@ const BlogDetails = () => {
             />
             <div className="flex flex-col gap-1">
               <h3 className="font-bold"> {selectedBlog.author} </h3>
-              <p className="font-thin text-slate-600"> 2 hours ago </p>
+              <p className="font-thin text-slate-600">
+                {" "}
+                {createdat.toDateString()}{" "}
+              </p>
             </div>
           </div>
           <BsThreeDotsVertical />
         </div>
-        <p className=" text-[1rem] md:text-xl font-semibold mt-5 text-xl text-slate-700">
+        <p className=" text-[1rem] ml-4 md:text-4xl font-semibold mt-5 text-xl text-slate-900">
           {" "}
           {selectedBlog.title}{" "}
         </p>
@@ -70,121 +74,12 @@ const BlogDetails = () => {
           </div>
         </div>
       </li>
-      <div className="w-full ">
-        <ul className=" w-[95%] md:max-w-[40rem] mx-auto  border-2 flex flex-col gap-9 items-center">
-          {/* {comments.map((com) => { */}
-          <li
-            key={1}
-            className="w-full  bg-white flex px-2 py-4 rounded-lg  shadow-2xl gap-6"
-          >
-            <img
-              className="w-12 h-12 rounded-full"
-              src="/assets/avatar2.jpg"
-              alt=""
-            />
-            <div className="flex gap-4 flex-col">
-              <div>
-                <div className="flex items-center gap-2">
-                  <h2 className="text-slate-950 font-bold"> Sachin Gavali </h2>
-                  <p className="text-slate-600 font-medium"> 2 months </p>
-                </div>
-                <p className="text-slate-700 font-semibold">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Reprehenderit, modi!
-                </p>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2">
-                  <AiFillLike />
-                  <p>12 </p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <AiFillDislike />
-                  <IoMdHeart />
-                </div>
-                <div className="flex items-center gap-2">
-                  <p className="font-bold">replay</p>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li
-            key={1}
-            className="w-full  bg-white flex px-2 py-4 rounded-lg  shadow-2xl gap-6"
-          >
-            <img
-              className="w-12 h-12 rounded-full"
-              src="/assets/avatar2.jpg"
-              alt=""
-            />
-            <div className="flex gap-4 flex-col">
-              <div>
-                <div className="flex items-center gap-2">
-                  <h2 className="text-slate-950 font-bold"> Sachin Gavali </h2>
-                  <p className="text-slate-600 font-medium"> 2 months </p>
-                </div>
-                <p className="text-slate-700 font-semibold">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Reprehenderit, modi!
-                </p>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2">
-                  <AiFillLike />
-                  <p>12 </p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <AiFillDislike />
-                  <IoMdHeart />
-                </div>
-                <div className="flex items-center gap-2">
-                  <p className="font-bold">replay</p>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li
-            key={1}
-            className="w-full  bg-white flex px-2 py-4 rounded-lg  shadow-2xl gap-6"
-          >
-            <img
-              className="w-12 h-12 rounded-full"
-              src="/assets/avatar2.jpg"
-              alt=""
-            />
-            <div className="flex gap-4 flex-col">
-              <div>
-                <div className="flex items-center gap-2">
-                  <h2 className="text-slate-950 font-bold"> Sachin Gavali </h2>
-                  <p className="text-slate-600 font-medium"> 2 months </p>
-                </div>
-                <p className="text-slate-700 font-semibold">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Reprehenderit, modi!
-                </p>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2">
-                  <AiFillLike />
-                  <p>12 </p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <AiFillDislike />
-                  <IoMdHeart />
-                </div>
-                <div className="flex items-center gap-2">
-                  <p className="font-bold">replay</p>
-                </div>
-              </div>
-            </div>
-          </li>
 
-          {/* })} */}
-        </ul>
-      </div>
       <div className="container mx-auto px-8 ">
-        <h2 className="font-bold text-3xl my-2 py-3"> {selectedBlog.title} </h2>
-        <p>{selectedBlog.content}</p>
+        <p>
+          {" "}
+          <div className="blogData">{parse(selectedBlog.content)}</div>
+        </p>
       </div>
     </ul>
   );
